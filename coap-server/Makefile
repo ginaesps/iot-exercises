@@ -3,7 +3,7 @@ all: $(CONTIKI_PROJECT)
 
 MODULES_REL += ./resources
 
-CONTIIKI = ../..
+CONTIKI = ../..
 
 #include the CoAP implementation
 include $(CONTIKI)/Makefile.dir-variables

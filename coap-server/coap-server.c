@@ -10,7 +10,7 @@ extern coap_resource_t res_battery;
 //en caso de querer agregar mas recursos, seria en esta seccion
 
 PROCESS (coap_server, "CoAP Server");
-AUTOSTART_PROCESS (&coap_server);
+AUTOSTART_PROCESSES(&coap_server);
 
 PROCESS_THREAD(coap_server, ev, data)
 {

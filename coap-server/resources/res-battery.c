@@ -5,17 +5,17 @@
 #include <stdio.h>
 
 static void
-res_get_handler{ //solo se va a configurar el get, pero podria ser todo el CRUD
+res_get_handler( //solo se va a configurar el get, pero podria ser todo el CRUD
     coap_message_t *request, 
     coap_message_t *response,
     uint8_t *buffer, //en caso de que la peticion traiga datos, aunque no deberia
-    uint16_t *preferred_size,
-    int32_t *offsetS
-};
+    uint16_t preferred_size,
+    int32_t *offset
+);
 
 RESOURCE(
     res_battery,
-    "title=\"Battery status\";rt=\battery\"",
+    "title=\"Battery status\";rt=\"battery\"",
     //las diagonales invertidas son para poder introducir cadenas dentro de cadenas
     //rt = resource type
     res_get_handler,

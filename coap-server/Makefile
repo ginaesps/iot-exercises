@@ -2,6 +2,8 @@ CONTIKI_PROJECT = coap-server
 all: $(CONTIKI_PROJECT)
 
 MODULES_REL += ./resources
+PROJECT_SOURCEFILES += virtual-sensor.c
+#linea anterior da acceso a funciones de virtual-sensor.h
 
 CONTIKI = ../..
 

@@ -1,4 +1,4 @@
-ifndef VIRTUAL_SENSOR_H
+#ifndef VIRTUAL_SENSOR_H
 #define VIRTUAL_SENSOR_H
 
 float read_temperature();

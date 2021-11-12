@@ -7,7 +7,7 @@ static void res_get_handler(
     coap_message_t *request,
     coap_message_t *response,
     uint8_t *buffer,
-    uint16_t preferred size,
+    uint16_t preferred_size,
     int32_t *offset
     //este encabezado es variable, offset rellena dichos datos
 );
@@ -33,7 +33,7 @@ static void res_get_handler(
     coap_message_t *request,
     coap_message_t *response,
     uint8_t *buffer,
-    uint16_t preferred size,
+    uint16_t preferred_size,
     int32_t *offset
     //en C es necesario definir handler antes de usarlo
 )
@@ -43,7 +43,7 @@ static void res_get_handler(
 
     if (accept == APPLICATION_JSON || accept == -1)
     {
-        coap_set_handler_content_format(response, APPLICATION_JSON);
+        coap_set_header_content_format(response, APPLICATION_JSON);
         snprintf((char *)buffer, COAP_MAX_CHUNK_SIZE, "{\"temperature\":\" % .2f\"}", temperature);
         coap_set_payload(response, (uint8_t *)buffer, strlen((char *)buffer));
     }
@@ -53,12 +53,6 @@ static void res_get_handler(
         const char *message = "Only application/json as content-type is supported.";
         coap_set_payload(response, message, strlen(message));
     }
-}
-
-static void
-res_periodic_handler()
-{
-    coap_notify_observers(&res_temperature);
 }
 
 //cada que el usuario el res-observable (se va a actualizar cada x t)
